@@ -1,4 +1,4 @@
-import Home from './routes/Home'
+import ArticlePreview from './routes/ArticlePreview'
 import { Route, Routes } from 'react-router-dom'
 
 export default function App() {
@@ -6,7 +6,7 @@ export default function App() {
     <Routes>
       <Route
         index
-        element={<Home />}
+        element={<ArticlePreview />}
       />
     </Routes>
   )
