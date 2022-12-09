@@ -1,9 +1,14 @@
 import styles from './ArticlePreview.module.scss'
-import author from '@/assets/images/avatar-michelle.jpg'
 import drawers from '@/assets/images/drawers.jpg'
-import iconShare from '@/assets/images/icon-share.svg'
+import Author from '@/components/ArticlePreview/Author'
+import Share from '@/components/ArticlePreview/Share'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useRef, useState } from 'react'
 
 export default function ArticlePreview() {
+  const footer = useRef<HTMLDivElement>(null)
+  const [showShare, setShowShare] = useState(false)
+
   return (
     <div className={styles.articlePreview}>
       <div className={styles.container}>
@@ -24,24 +29,24 @@ export default function ArticlePreview() {
             you make any room feel complete.
           </p>
         </main>
-        <footer>
-          <div className={styles.author}>
-            <img
-              className={styles.avatar}
-              src={author}
-              alt=""
-            />
-            <div className={styles.details}>
-              <div>Michelle Appleton</div>
-              <div>28 Jun 2020</div>
-            </div>
-            <div className={styles.share}>
-              <img
-                src={iconShare}
-                alt=""
-              />
-            </div>
-          </div>
+        <footer
+          ref={footer}
+          onMouseEnter={() => setShowShare(true)}
+          onMouseLeave={() => setShowShare(false)}
+        >
+          {!showShare && <Author />}
+
+          <AnimatePresence>
+            {showShare && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <Share />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </footer>
       </div>
     </div>

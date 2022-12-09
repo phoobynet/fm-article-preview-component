@@ -1,0 +1,22 @@
+@import '@/assets/styles/colors';
+
+.author {
+  display: grid;
+  grid-template-columns: 3.5rem auto 2rem;
+  width: 100%;
+
+  .details {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+
+    :first-child {
+      font-weight: 700;
+      color: $very-dark-grayish-blue;
+    }
+
+    :last-child {
+      font-weight: 500;
+      color: $desaturated-dark-blue;
+    }
+  }
+}

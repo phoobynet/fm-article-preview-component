@@ -1,0 +1,36 @@
+%share-btn {
+  place-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 2rem;
+}
+
+.share-btn {
+  @extend %share-btn;
+
+  background-color: #ecf2f8;
+}
+
+.share-btn-alt {
+  @extend %share-btn;
+
+  background-color: #959494;
+}
+
+%share-btn-img {
+  width: 0.938rem;
+  height: 0.813rem;
+}
+
+.share-btn-img {
+  @extend %share-btn-img;
+}
+
+.share-btn-img-alt {
+  @extend %share-btn-img;
+
+  filter: brightness(0) invert(1);
+}
