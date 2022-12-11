@@ -43,6 +43,7 @@ $footer-height: 4rem;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem hsl(1deg 10% 17% / 10%);
     overflow: hidden;
+    will-change: transform;
     animation: fade-in 0.2s;
 
     header {
@@ -86,6 +87,7 @@ $footer-height: 4rem;
       width: 100%;
       height: $footer-height;
       cursor: pointer;
+      isolation: isolate;
 
       &:hover {
         cursor: pointer;
