@@ -129,8 +129,10 @@ $footer-height: 4rem;
       margin-top: 2rem;
 
       &:hover {
+        cursor: default;
+
         .card-footer-alt {
-          transform: translateY(0);
+          transform: translateY(5rem);
         }
       }
     }
