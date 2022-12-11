@@ -1,6 +1,33 @@
 @import '@/assets/styles/colors';
 
 $horizontal-padding: 2rem;
+$transition-interval: 0.2s;
+$transition-easing: ease-in-out;
+$footer-height: 4rem;
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+%content {
+  padding: 0 $horizontal-padding;
+}
+
+%footer-content {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: $footer-height;
+}
 
 .article-preview {
   height: 100vh;
@@ -16,6 +43,7 @@ $horizontal-padding: 2rem;
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem hsl(1deg 10% 17% / 10%);
     overflow: hidden;
+    animation: fade-in 0.2s;
 
     header {
       height: 12.5rem;
@@ -53,11 +81,35 @@ $horizontal-padding: 2rem;
 
     footer {
       position: relative;
-      margin-top: 3.2rem;
-      padding: 0 $horizontal-padding;
+      display: flex;
+      margin-top: 2.5rem;
       width: 100%;
-      height: 5rem;
+      height: $footer-height;
       cursor: pointer;
+
+      &:hover {
+        cursor: pointer;
+
+        .alt {
+          transform: translateY(0.5rem);
+          opacity: 1;
+          transition: all $transition-interval $transition-easing;
+        }
+      }
+
+      .normal {
+        @extend %footer-content;
+
+        padding: 0 $horizontal-padding;
+      }
+
+      .alt {
+        @extend %footer-content;
+
+        transform: translateY($footer-height);
+        opacity: 0;
+        transition: all $transition-interval $transition-easing;
+      }
     }
   }
 }

@@ -2,7 +2,6 @@ import styles from './ArticlePreview.module.scss'
 import drawers from '@/assets/images/drawers.jpg'
 import Author from '@/components/ArticlePreview/Author'
 import Share from '@/components/ArticlePreview/Share'
-import { AnimatePresence, motion } from 'framer-motion'
 import { useRef, useState } from 'react'
 
 export default function ArticlePreview() {
@@ -29,24 +28,13 @@ export default function ArticlePreview() {
             you make any room feel complete.
           </p>
         </main>
-        <footer
-          ref={footer}
-          onMouseEnter={() => setShowShare(true)}
-          onMouseLeave={() => setShowShare(false)}
-        >
-          {!showShare && <Author />}
-
-          <AnimatePresence>
-            {showShare && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <Share />
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <footer>
+          <div className={styles.normal}>
+            <Author />
+          </div>
+          <div className={styles.alt}>
+            <Share />
+          </div>
         </footer>
       </div>
     </div>
