@@ -12,25 +12,27 @@ export default function Card() {
           alt=""
         />
       </header>
-      <main className={styles.cardMain}>
-        <h1>
-          Shift the overall look and feel by adding these wonderful touches to
-          furniture in your home
-        </h1>
-        <p>
-          Ever been in a room and felt like something was missing? Perhaps it
-          felt slightly bare and uninviting. I’ve got some simple tips to help
-          you make any room feel complete.
-        </p>
+      <main>
+        <div className={styles.cardMain}>
+          <h1>
+            Shift the overall look and feel by adding these wonderful touches to
+            furniture in your home
+          </h1>
+          <p>
+            Ever been in a room and felt like something was missing? Perhaps it
+            felt slightly bare and uninviting. I’ve got some simple tips to help
+            you make any room feel complete.
+          </p>
+        </div>
+        <div className={styles.cardFooter}>
+          <div className={styles.cardFooterNormal}>
+            <Author />
+          </div>
+          <div className={styles.cardFooterAlt}>
+            <Share />
+          </div>
+        </div>
       </main>
-      <footer className={styles.cardFooter}>
-        <div className={styles.cardFooterNormal}>
-          <Author />
-        </div>
-        <div className={styles.cardFooterAlt}>
-          <Share />
-        </div>
-      </footer>
     </div>
   )
 }
