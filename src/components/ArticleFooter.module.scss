@@ -18,11 +18,12 @@ $transition-easing: ease-in-out;
 }
 
 .article-footer {
+  background-color: chocolate;
   position: relative;
   display: flex;
   margin-top: 2.5rem;
   width: 100%;
-  height: 4rem;
+  height: $footer-height;
   isolation: isolate;
 
   $footer-height: 4rem;
@@ -31,6 +32,7 @@ $transition-easing: ease-in-out;
     @extend %footer-content;
 
     padding: 0 $horizontal-padding;
+    align-self: start;
   }
 
   .alt {
