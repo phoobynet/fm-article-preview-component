@@ -1,12 +1,12 @@
-import styles from './Share.module.scss'
+import styles from './ArticleShare.module.scss'
 import facebook from '@/assets/images/icon-facebook.svg'
 import pinterest from '@/assets/images/icon-pinterest.svg'
 import twitter from '@/assets/images/icon-twitter.svg'
-import ShareBtn from '@/components/ArticlePreview/ShareBtn'
+import ArticleShareButton from '@/components/ArticleShareButton'
 
-export default function Share() {
+export default function ArticleShare() {
   return (
-    <div className={styles.share}>
+    <div className={styles.articleShare}>
       <div className={styles.label}>share</div>
       <div className={styles.social}>
         <img
@@ -23,7 +23,7 @@ export default function Share() {
         />
       </div>
       <div>
-        <ShareBtn alt={true} />
+        <ArticleShareButton alt={true} />
       </div>
     </div>
   )

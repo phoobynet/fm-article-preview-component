@@ -1,10 +1,10 @@
 import styles from './ArticlePreview.module.scss'
-import Card from '@/components/ArticlePreview/Card'
+import Article from '@/components/Article'
 
 export default function ArticlePreview() {
   return (
     <div className={styles.articlePreview}>
-      <Card />
+      <Article />
     </div>
   )
 }

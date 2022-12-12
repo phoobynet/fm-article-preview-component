@@ -12,6 +12,10 @@
   @extend %share-btn;
 
   background-color: #ecf2f8;
+
+  &::before {
+    content: 'hello';
+  }
 }
 
 .share-btn-alt {

@@ -1,0 +1,30 @@
+@import '@/assets/styles/colors';
+@import '@/assets/styles/animations';
+
+%content {
+  padding: 0 2rem;
+}
+
+.article {
+  display: grid;
+  width: 20.438rem;
+  height: 32rem;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem hsl(1deg 10% 17% / 10%);
+  overflow: hidden;
+  animation: fade-in 0.2s;
+
+  // HACK: Safari doesn't honour the `overflow: hidden` property when transitioning in the share footer.
+  will-change: transform;
+}
+
+@media (min-width: 1440px) {
+  .article {
+    flex-direction: row;
+    grid-template-columns: 285px auto;
+    grid-template-rows: 285px;
+    width: 45.625rem;
+    height: 14.375rem;
+  }
+}

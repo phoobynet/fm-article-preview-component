@@ -1,0 +1,53 @@
+$footer-height: 4rem;
+$horizontal-padding: 2rem;
+$transition-interval: 0.2s;
+$transition-easing: ease-in-out;
+
+%content {
+  padding: 0 $horizontal-padding;
+}
+
+%footer-content {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: $footer-height;
+}
+
+.article-footer {
+  position: relative;
+  display: flex;
+  margin-top: 2.5rem;
+  width: 100%;
+  height: 4rem;
+  isolation: isolate;
+
+  $footer-height: 4rem;
+
+  .normal {
+    @extend %footer-content;
+
+    padding: 0 $horizontal-padding;
+  }
+
+  .alt {
+    @extend %footer-content;
+
+    transform: translateY($footer-height);
+    opacity: 0;
+    transition: all $transition-interval $transition-easing;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    .alt {
+      transform: translateY(0.5rem);
+      opacity: 1;
+      transition: all $transition-interval $transition-easing;
+    }
+  }
+}

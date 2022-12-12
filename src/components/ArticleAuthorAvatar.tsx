@@ -1,10 +1,10 @@
-import styles from './Avatar.module.scss'
+import styles from './ArticleAuthorAvatar.module.scss'
 
 interface Props {
   url: string
 }
 
-export default function Avatar({ url }: Props) {
+export default function ArticleAuthorAvatar({ url }: Props) {
   return (
     <img
       className={styles.avatar}

@@ -1,17 +1,17 @@
-import styles from './Author.module.scss'
+import styles from './ArticleAuthor.module.scss'
 import author from '@/assets/images/avatar-michelle.jpg'
 import ArticleAuthorAvatar from '@/components/ArticleAuthorAvatar'
-import ShareArticleBtn from '@/components/ArticlePreview/ShareArticleBtn'
+import ArticleShareButton from '@/components/ArticleShareButton'
 
-export default function Author() {
+export default function ArticleAuthor() {
   return (
-    <div className={styles.author}>
+    <div className={styles.articleAuthor}>
       <ArticleAuthorAvatar url={author} />
       <div className={styles.details}>
         <div className={styles.name}>Michelle Appleton</div>
         <div className={styles.published}>28 Jun 2020</div>
       </div>
-      <ShareArticleBtn />
+      <ArticleShareButton />
     </div>
   )
 }

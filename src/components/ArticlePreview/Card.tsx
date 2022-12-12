@@ -1,7 +1,7 @@
 import styles from './Card.module.scss'
 import drawers from '@/assets/images/drawers.jpg'
 import Author from '@/components/ArticlePreview/Author'
-import Share from '@/components/ArticlePreview/Share'
+import ShareArticle from '@/components/ArticlePreview/ShareArticle'
 
 export default function Card() {
   return (
@@ -29,7 +29,7 @@ export default function Card() {
             <Author />
           </div>
           <div className={styles.cardFooterAlt}>
-            <Share />
+            <ShareArticle />
           </div>
         </div>
       </main>
