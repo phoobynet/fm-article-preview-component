@@ -1,15 +1,11 @@
 @import '@/assets/styles/colors';
 
-$footer-height: 4rem;
 $horizontal-padding: 2rem;
 $transition-interval: 0.2s;
 $transition-easing: ease-in-out;
+$footer-height: 4rem;
 
-%content {
-  padding: 0 $horizontal-padding;
-}
-
-%footer-content {
+@mixin footer-content {
   position: absolute;
   width: 100%;
   display: flex;
@@ -21,37 +17,47 @@ $transition-easing: ease-in-out;
 
 .article-footer {
   background-color: $white;
-  position: relative;
   display: flex;
-  margin-top: 2.5rem;
-  width: 100%;
   height: $footer-height;
-  isolation: isolate;
-
-  $footer-height: 4rem;
 
   .normal {
-    @extend %footer-content;
+    @include footer-content;
 
     padding: 0 $horizontal-padding;
     align-self: start;
   }
 
   .alt {
-    @extend %footer-content;
+    @include footer-content;
 
     transform: translateY($footer-height);
     opacity: 0;
     transition: all $transition-interval $transition-easing;
   }
+}
 
-  &:hover {
-    cursor: pointer;
+@media (max-width: 1439px) {
+  .article-footer {
+    &:hover {
+      cursor: pointer;
 
+      .alt {
+        transform: translateY(0);
+        opacity: 1;
+        transition: all $transition-interval $transition-easing;
+      }
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .article-footer {
     .alt {
-      transform: translateY(0);
-      opacity: 1;
-      transition: all $transition-interval $transition-easing;
+      display: none;
+    }
+
+    .normal {
+      position: relative;
     }
   }
 }

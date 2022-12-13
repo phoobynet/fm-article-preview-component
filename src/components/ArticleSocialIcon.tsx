@@ -1,3 +1,4 @@
+import styles from './ArticleSocialIcon.module.scss'
 import facebook from '@/assets/images/icon-facebook.svg'
 import pinterest from '@/assets/images/icon-pinterest.svg'
 import twitter from '@/assets/images/icon-twitter.svg'
@@ -22,6 +23,7 @@ export default function ArticleSocialIcon({ company }: Props) {
 
   return (
     <img
+      className={styles.articleSocialIcon}
       src={imgSrc}
       alt={company}
     />

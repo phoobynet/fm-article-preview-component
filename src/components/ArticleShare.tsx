@@ -2,7 +2,7 @@ import styles from './ArticleShare.module.scss'
 import ArticleShareButton from '@/components/ArticleShareButton'
 import Icon, { SocialMediaCompany } from '@/components/ArticleSocialIcon'
 
-const companies: SocialMediaCompany[] = ['facebook', 'pinterest', 'twitter']
+const companies: SocialMediaCompany[] = ['facebook', 'twitter', 'pinterest']
 
 export default function ArticleShare() {
   return (

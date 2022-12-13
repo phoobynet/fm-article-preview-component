@@ -7,8 +7,10 @@ export default function Article() {
   return (
     <article className={styles.article}>
       <ArticleHeader />
-      <ArticleMain />
-      <ArticleFooter />
+      <div className={styles.layout}>
+        <ArticleMain />
+        <ArticleFooter />
+      </div>
     </article>
   )
 }
