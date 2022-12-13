@@ -1,11 +1,8 @@
 @import '@/assets/styles/colors';
 @import '@/assets/styles/animations';
 
-%content {
-  padding: 0 2rem;
-}
-
 .article {
+  position: relative;
   display: grid;
   grid-template-rows: 12.5rem auto;
   width: 20.438rem;
