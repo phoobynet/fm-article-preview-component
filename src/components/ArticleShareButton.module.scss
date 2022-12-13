@@ -1,36 +1,29 @@
-%article-share-button {
-  place-self: center;
+@import '@/assets/styles/colors';
+
+.article-share-button {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 2rem;
   height: 2rem;
   border-radius: 2rem;
+  background-color: $light-grayish-blue;
 }
 
-.article-share-button {
-  @extend %article-share-button;
-
-  background-color: #ecf2f8;
-}
-
-.article-share-button-alt {
-  @extend %article-share-button;
-
-  background-color: #6e8098;
-}
-
-%article-share-button-img {
+.article-share-button-img {
   width: 0.938rem;
   height: 0.813rem;
 }
 
-.article-share-button-img {
-  @extend %article-share-button-img;
-}
+@media (min-width: 1440px) {
+  .article-share-button {
+    &:hover {
+      cursor: pointer;
+      background-color: #6e8098;
 
-.article-share-button-alt-img {
-  @extend %article-share-button-img;
-
-  filter: brightness(0) invert(1);
+      .article-share-button-img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
 }

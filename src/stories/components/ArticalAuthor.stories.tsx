@@ -10,8 +10,3 @@ export default {
 const Template: ComponentStory<typeof ArticleAuthor> = () => <ArticleAuthor />
 
 export const Default = Template.bind({})
-Default.parameters = {
-  background: {
-    default: 'light',
-  },
-}
