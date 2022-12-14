@@ -1,77 +1,33 @@
 .demo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  max-width: 1440px;
+  margin: 4rem auto 0;
 
-  main {
-    display: flex;
-    flex-direction: column;
-    width: 20rem;
-    height: 30rem;
-    border: 1px solid black;
-    border-radius: 1rem;
-    padding: 1.5rem;
+  .target {
+    cursor: pointer;
+    position: relative;
 
-    [data-popover-target] {
-      position: relative;
-      display: flex;
-      width: 2rem;
-      height: 2rem;
-      background-color: lightgray;
-      border-radius: 2rem;
-      align-items: center;
-      justify-content: center;
-      overflow: visible;
+    &-content {
+      color: #000;
+      border: 1px solid #000;
+    }
+  }
 
-      ::before {
-        position: absolute;
-        z-index: -1;
-        content: '';
-        right: calc(50% - 10px);
-        bottom: -8px;
-        border-style: solid;
-        border-width: 0 10px 10px;
-        border-color: transparent transparent #000;
-        transform: rotate(180deg);
-      }
+  .popover {
+    width: max-content;
+    position: absolute;
 
-      [data-popover] {
-        position: absolute;
-        background-color: black;
-        color: white;
-        display: none;
-        padding: 0.5rem 1rem;
-        top: -3.5rem;
-        opacity: 0;
-        transition: opacity 0.2s linear;
-        height: 30px;
-        width: 160px;
-        border-radius: 0.5rem;
+    &-content {
+      padding: 0.5rem 1rem;
+      background-color: black;
+      color: white;
+    }
 
-        p {
-          text-align: center;
-        }
-
-        div {
-          height: 0.5rem;
-        }
-
-        svg {
-          height: 10px;
-        }
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        [data-popover] {
-          display: flex;
-          flex-direction: column;
-          opacity: 1;
-          transition: opacity 0.2s linear;
-        }
-      }
+    &-arrow {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid #000;
     }
   }
 }

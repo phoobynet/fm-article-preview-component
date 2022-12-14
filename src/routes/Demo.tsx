@@ -1,69 +1,70 @@
-import { PropsWithChildren, useEffect, useRef, useState } from 'react'
+import styles from './Demo.module.scss'
+import { useResizeObserver } from '@react-hookz/web'
+import { PropsWithChildren, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import styled from 'styled-components'
 
-const Container = styled.div`
-  width: 70%;
-  margin: 3rem auto 0;
-`
+interface PopoverProps {
+  rect?: DOMRect
+}
 
-const Popover = styled.div`
-  font-size: 1.5rem;
-  position: absolute;
-  height: 50px;
-  width: 100px;
-  top: 0;
-  background-color: #000;
-  opacity: 0.5;
-  color: #f9fff9;
-`
-
-const RenderPortal = ({ children }: PropsWithChildren) => {
-  return createPortal(children, document.getElementById('portal')!)
+const Popover = ({ rect, children }: PropsWithChildren<PopoverProps>) => {}
+const PopoverPortal = ({ children, rect }: PropsWithChildren<PopoverProps>) => {
+  if (!rect) return null
+  return createPortal(
+    <div
+      className={styles.popover}
+      style={{
+        position: 'absolute',
+        top: rect.top - 10,
+        left: rect.left,
+      }}
+    >
+      {children}
+    </div>,
+    document.getElementById('popover')!,
+  )
 }
 
 export default function Demo() {
-  const [show, setShow] = useState(false)
-  const [x, setX] = useState(0)
-  const [y, setY] = useState(0)
-  const [width, setWidth] = useState(0)
-  const pop = useRef<HTMLDivElement>(null)
-
-  const buttonRef = useRef<HTMLButtonElement>(null)
-  const buttonRect = useRef<DOMRect>()
-
-  const handleButtonRef = (el: HTMLButtonElement) => {
-    if (!el) return
-
-    const domRect = el.getBoundingClientRect()
-    setX(domRect.x)
-    setY(domRect.y)
-    setWidth(domRect.width)
-  }
-
-  useEffect(() => {
-    buttonRect.current = buttonRef.current?.getBoundingClientRect()
-  }, [])
-
-  const onClick = () => {
-    setShow((state) => !state)
-  }
+  const target = useRef<HTMLDivElement>(null)
+  const [showPopover, setShowPopover] = useState(true)
+  const [rect, setRect] = useState<DOMRect>()
+  useResizeObserver(target, (e) => {
+    if (target.current) {
+      setRect(target.current.getBoundingClientRect())
+    }
+  })
 
   return (
-    <Container>
-      <RenderPortal>{show && <Popover ref={pop}>Hello</Popover>}</RenderPortal>
-      <button
-        onClick={onClick}
-        ref={handleButtonRef}
+    <div className={styles.demo}>
+      <div
+        style={{
+          width: 200,
+          height: 200,
+          border: '1px solid blue',
+          overflow: 'hidden',
+        }}
       >
-        Click Me
-      </button>
-
-      {x && (
-        <p>
-          x: {x}, y: {y}, width: {width}
-        </p>
-      )}
-    </Container>
+        <div
+          ref={target}
+          className={styles.target}
+          onMouseEnter={() => setShowPopover(true)}
+          onMouseLeave={() => setShowPopover(false)}
+        >
+          <div className={styles.targetContent}>I am the target</div>
+        </div>
+      </div>
+      <PopoverPortal rect={rect}>
+        {showPopover && (
+          <div className={styles.popover}>
+            <div className={styles.popoverContent}>This is a popover</div>
+            <div className={styles.popoverArrow}></div>
+          </div>
+        )}
+      </PopoverPortal>
+      <div>
+        <pre>{JSON.stringify(rect, null, 2)}</pre>
+      </div>
+    </div>
   )
 }

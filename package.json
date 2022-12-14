@@ -12,11 +12,13 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@react-hookz/web": "^20.0.1",
     "framer-motion": "^7.6.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.3",
+    "react-use": "^17.4.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
