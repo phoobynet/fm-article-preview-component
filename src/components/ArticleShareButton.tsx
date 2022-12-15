@@ -28,7 +28,7 @@ export default function ArticleShareButton({ popover }: Props) {
   if (popover) {
     return (
       <Popover
-        isOpen={true}
+        isOpen={isPopoverOpen}
         positions={['top']}
         padding={11}
         content={({ position, childRect, popoverRect }) => (
@@ -39,14 +39,15 @@ export default function ArticleShareButton({ popover }: Props) {
             arrowColor={'hsl(217deg 19% 35%)'}
             arrowSize={10}
           >
-            <ArticleSharePopover />
+            <div>
+              <ArticleSharePopover />
+            </div>
           </ArrowContainer>
         )}
       >
         <div
           className={styles.articleShareButton}
-          onMouseEnter={() => setIsPopoverOpen(true)}
-          onMouseLeave={() => setIsPopoverOpen(false)}
+          onClick={() => setIsPopoverOpen((state) => !state)}
         >
           {arrow}
         </div>
