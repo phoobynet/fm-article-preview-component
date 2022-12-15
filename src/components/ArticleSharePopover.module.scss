@@ -1,21 +1,23 @@
 @import '@/assets/styles/colors';
 
-.article-share {
+.article-share-popover {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   background-color: $very-dark-grayish-blue;
   color: white;
-  width: 100%;
-  height: 5rem;
-  padding: 2rem;
+  width: 248px;
+  padding: 1.5rem;
   overflow: hidden;
+  border-radius: 0.75rem;
+  height: 2rem;
 
   .label {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
+    line-height: 20px;
     color: $grayish-blue;
   }
 
@@ -26,8 +28,4 @@
     grid-gap: 1rem;
     max-width: 10rem;
   }
-}
-
-.popover {
-  height: 53px !important;
 }

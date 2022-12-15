@@ -23,3 +23,15 @@
     }
   }
 }
+
+@media (max-width: 1439px) {
+  .desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mobile {
+    display: none;
+  }
+}

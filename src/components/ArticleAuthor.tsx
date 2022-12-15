@@ -11,7 +11,12 @@ export default function ArticleAuthor() {
         <div className={styles.name}>Michelle Appleton</div>
         <div className={styles.published}>28 Jun 2020</div>
       </div>
-      <ArticleShareButton />
+      <div className={styles.mobile}>
+        <ArticleShareButton popover={false} />
+      </div>
+      <div className={styles.desktop}>
+        <ArticleShareButton popover={true} />
+      </div>
     </div>
   )
 }

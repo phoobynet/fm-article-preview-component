@@ -1,6 +1,6 @@
 import styles from './ArticleFooter.module.scss'
 import ArticleAuthor from '@/components/ArticleAuthor'
-import ArticleShare from '@/components/ArticleShare'
+import ArticleShareSlideUp from '@/components/ArticleShareSlideUp'
 
 export default function ArticleFooter() {
   return (
@@ -9,7 +9,7 @@ export default function ArticleFooter() {
         <ArticleAuthor />
       </div>
       <div className={styles.alt}>
-        <ArticleShare />
+        <ArticleShareSlideUp />
       </div>
     </footer>
   )

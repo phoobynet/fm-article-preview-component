@@ -1,29 +1,58 @@
 import styles from './ArticleShareButton.module.scss'
 import iconShare from '@/assets/images/icon-share.svg'
-import ArticleShare from '@/components/ArticleShare'
+import ArticleSharePopover from '@/components/ArticleSharePopover'
+import ShiftBy from '@/components/ShiftBy'
 import { useState } from 'react'
-import { Popover } from 'react-tiny-popover'
+import { ArrowContainer, Popover } from 'react-tiny-popover'
 
-export default function ArticleShareButton() {
+interface Props {
+  popover?: boolean
+}
+
+export default function ArticleShareButton({ popover }: Props) {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
 
-  return (
-    <Popover
-      isOpen={true}
-      positions={['top']}
-      content={<ArticleShare displayAs="popover" />}
+  const arrow = (
+    <ShiftBy
+      x={1}
+      y={-1}
     >
-      <div
-        className={styles.articleShareButton}
-        onMouseEnter={() => setIsPopoverOpen(true)}
-        onMouseLeave={() => setIsPopoverOpen(false)}
-      >
-        <img
-          className={styles.articleShareButtonImg}
-          src={iconShare}
-          alt=""
-        />
-      </div>
-    </Popover>
+      <img
+        className={styles.articleShareButtonImg}
+        src={iconShare}
+        alt=""
+      />
+    </ShiftBy>
   )
+
+  if (popover) {
+    return (
+      <Popover
+        isOpen={true}
+        positions={['top']}
+        padding={11}
+        content={({ position, childRect, popoverRect }) => (
+          <ArrowContainer
+            position={position}
+            childRect={childRect}
+            popoverRect={popoverRect}
+            arrowColor={'hsl(217deg 19% 35%)'}
+            arrowSize={10}
+          >
+            <ArticleSharePopover />
+          </ArrowContainer>
+        )}
+      >
+        <div
+          className={styles.articleShareButton}
+          onMouseEnter={() => setIsPopoverOpen(true)}
+          onMouseLeave={() => setIsPopoverOpen(false)}
+        >
+          {arrow}
+        </div>
+      </Popover>
+    )
+  }
+
+  return <div className={styles.articleShareButton}>{arrow}</div>
 }
