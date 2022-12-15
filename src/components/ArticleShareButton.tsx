@@ -1,17 +1,29 @@
 import styles from './ArticleShareButton.module.scss'
 import iconShare from '@/assets/images/icon-share.svg'
+import ArticleShare from '@/components/ArticleShare'
+import { useState } from 'react'
+import { Popover } from 'react-tiny-popover'
 
 export default function ArticleShareButton() {
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false)
+
   return (
-    <div
-      className={styles.articleShareButton}
-      data-toolip="Hello, World!"
+    <Popover
+      isOpen={true}
+      positions={['top']}
+      content={<ArticleShare displayAs="popover" />}
     >
-      <img
-        className={styles.articleShareButtonImg}
-        src={iconShare}
-        alt=""
-      />
-    </div>
+      <div
+        className={styles.articleShareButton}
+        onMouseEnter={() => setIsPopoverOpen(true)}
+        onMouseLeave={() => setIsPopoverOpen(false)}
+      >
+        <img
+          className={styles.articleShareButtonImg}
+          src={iconShare}
+          alt=""
+        />
+      </div>
+    </Popover>
   )
 }

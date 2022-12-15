@@ -4,9 +4,17 @@ import Icon, { SocialMediaCompany } from '@/components/ArticleSocialIcon'
 
 const companies: SocialMediaCompany[] = ['facebook', 'twitter', 'pinterest']
 
-export default function ArticleShare() {
+interface Props {
+  displayAs?: 'normal' | 'popover'
+}
+
+export default function ArticleShare({ displayAs }: Props) {
   return (
-    <div className={styles.articleShare}>
+    <div
+      className={styles.articleShare}
+      data-display-as={displayAs}
+      id="cunt"
+    >
       <div className={styles.social}>
         <div className={styles.label}>share</div>
         {companies.map((company) => (
