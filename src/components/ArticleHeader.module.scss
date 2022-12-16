@@ -1,9 +1,8 @@
 .article-header {
   height: 12.5rem;
   width: 100%;
-  overflow: hidden;
 
-  img {
+  .article-header-img {
     margin-top: -1rem;
   }
 }
@@ -11,12 +10,15 @@
 @media (min-width: 1440px) {
   .article-header {
     height: 285px;
+    position: relative;
 
-    img {
+    .article-header-img {
+      position: absolute;
       margin-top: 0;
-      height: 285px;
+      height: 280px;
       object-fit: cover;
-      object-position: left;
+      object-position: -6% 50%;
+      width: auto;
     }
   }
 }

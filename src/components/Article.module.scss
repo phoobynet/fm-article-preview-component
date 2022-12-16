@@ -8,7 +8,7 @@
   width: 20.438rem;
   height: 32rem;
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem hsl(1deg 10% 17% / 10%);
   overflow: hidden;
   animation: fade-in 0.2s;
@@ -24,7 +24,7 @@
 
 @media (min-width: 1440px) {
   .article {
-    grid-template-columns: 285px auto;
+    grid-template-columns: 289px auto;
     width: 45.625rem;
     height: 17.5rem;
   }

@@ -7,6 +7,7 @@ export default function ArticleHeader() {
       <img
         src={drawers}
         alt=""
+        className={styles.articleHeaderImg}
       />
     </header>
   )

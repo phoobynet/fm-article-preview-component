@@ -2,6 +2,7 @@ import styles from './ArticleShareButton.module.scss'
 import iconShare from '@/assets/images/icon-share.svg'
 import ArticleSharePopover from '@/components/ArticleSharePopover'
 import ShiftBy from '@/components/ShiftBy'
+import { useKeyboardEvent } from '@react-hookz/web'
 import { useState } from 'react'
 import { ArrowContainer, Popover } from 'react-tiny-popover'
 
@@ -11,6 +12,7 @@ interface Props {
 
 export default function ArticleShareButton({ popover }: Props) {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false)
+  useKeyboardEvent('Escape', () => setIsPopoverOpen(false))
 
   const arrow = (
     <ShiftBy
@@ -31,6 +33,7 @@ export default function ArticleShareButton({ popover }: Props) {
         isOpen={isPopoverOpen}
         positions={['top']}
         padding={11}
+        onClickOutside={() => setIsPopoverOpen(false)}
         content={({ position, childRect, popoverRect }) => (
           <ArrowContainer
             position={position}
