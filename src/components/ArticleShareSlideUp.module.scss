@@ -13,7 +13,7 @@
   overflow: hidden;
 
   .label {
-    font-size: 13px;
+    font-size: 0.813rem;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     color: $grayish-blue;
@@ -21,13 +21,9 @@
 
   .social {
     display: grid;
-    grid-template-columns: auto 24px 24px 24px;
+    grid-template-columns: auto 1.5rem 1.5rem 1.5rem;
     align-items: center;
     grid-gap: 1rem;
     max-width: 10rem;
   }
-}
-
-.popover {
-  height: 53px !important;
 }

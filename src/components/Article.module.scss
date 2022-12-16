@@ -20,12 +20,14 @@
     display: grid;
     grid-template-rows: auto 4.5rem;
   }
-}
 
-@media (min-width: 1440px) {
-  .article {
-    grid-template-columns: 289px auto;
+  @media (min-width: 1440px) {
+    grid-template-columns: 17.8rem auto;
     width: 45.625rem;
     height: 17.5rem;
+
+    .layout {
+      grid-template-rows: 12.3rem auto;
+    }
   }
 }

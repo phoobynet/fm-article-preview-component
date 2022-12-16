@@ -11,26 +11,30 @@
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.5rem;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.0125rem;
     color: $very-dark-grayish-blue;
   }
 
   p {
     margin-top: 0.7rem;
-    font-size: 13.5px;
+    font-size: 0.844rem;
     font-weight: 500;
     line-height: 1.25rem;
-    letter-spacing: 0.12px;
+    letter-spacing: 0.0075rem;
     color: $desaturated-dark-blue;
   }
   @media (min-width: 1440px) {
-    padding: 0 2.2rem;
+    padding: 0 2.5rem;
     margin-top: 2rem;
 
     h1 {
       font-size: 1.27rem;
-      line-height: 28px;
-      letter-spacing: 0.25px;
+      line-height: 1.75rem;
+      letter-spacing: 0.0156rem;
+    }
+
+    p {
+      margin-top: 0.8rem;
     }
   }
 }

@@ -7,23 +7,23 @@
   justify-content: space-between;
   background-color: $very-dark-grayish-blue;
   color: white;
-  width: 248px;
-  padding: 1.5rem;
+  width: 15.9rem;
+  padding: 1.7rem;
   overflow: hidden;
   border-radius: 0.75rem;
-  height: 2rem;
+  height: 3.4rem;
 
   .label {
-    font-size: 13px;
+    font-size: 0.813rem;
     text-transform: uppercase;
     letter-spacing: 0.3rem;
-    line-height: 20px;
+    line-height: 1.25rem;
     color: $grayish-blue;
   }
 
   .social {
     display: grid;
-    grid-template-columns: auto 24px 24px 24px;
+    grid-template-columns: auto 1.5rem 1.5rem 1.5rem;
     align-items: center;
     grid-gap: 1rem;
     max-width: 10rem;
